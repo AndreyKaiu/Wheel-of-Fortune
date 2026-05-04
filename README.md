@@ -3,11 +3,13 @@ Select options using a roulette wheel. A single HTML file that doesn't require i
 
 User view:
 
-<img width="1397" height="582" alt="2" src="https://github.com/user-attachments/assets/059188f7-bff4-46b8-8619-098d2376351b" />
+<img width="1393" height="572" alt="1" src="https://github.com/user-attachments/assets/627fd855-8067-43c5-a314-187676843537" />
+
+
 
 **Editing view (switched by: "[Shift]+[1]" or when you type "zzz" in the title name)**
 
-<img width="1393" height="572" alt="1" src="https://github.com/user-attachments/assets/627fd855-8067-43c5-a314-187676843537" />
+<img width="1397" height="582" alt="2" src="https://github.com/user-attachments/assets/059188f7-bff4-46b8-8619-098d2376351b" />
 
 In the left input line, you can type "1-5" and press "Enter." This will create a list of 5 numbers. Clicking on the roulette wheel will start it, and the number that comes up will be displayed on the button below.
 
