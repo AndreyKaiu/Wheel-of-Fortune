@@ -7,6 +7,7 @@ User view:
 
 
 
+ 
 **Editing view (switched by: "[Shift]+[1]" or when you type "zzz" in the title name)**
 
 <img width="1397" height="582" alt="2" src="https://github.com/user-attachments/assets/059188f7-bff4-46b8-8619-098d2376351b" />
