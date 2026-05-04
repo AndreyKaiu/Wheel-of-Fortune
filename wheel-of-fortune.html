@@ -929,22 +929,39 @@ function openSelected() {
     if (!selectedResult) return;
 
     let openURL = selectedResult.trim();
+    let nameURL = '';
 
     if (openURL.includes("|")) {
-        openURL = openURL.split("|")[1].trim();
-    }   
+        let spar = openURL.split("|"); 
+        nameURL = spar[0].trim(); 
+        openURL = spar[1].trim();
+    }  
 
-    // if there is no protocol
-    if (!openURL.includes("//")) {        
-        if (hasValidExtension(openURL)) {
-            openURL = new URL(openURL, window.location.href).href;
-            window.open(openURL, "_blank");
-        } 
+    // if google search or google search with AI
+    if (openURL === "?" || openURL === "??") {
+        if (!nameURL) return;
+        const query = encodeURIComponent(nameURL);
+        let searchURL = "https://www.google.com/search?q=" + query;
+        // AI mode
+        if (openURL === "??") {
+            searchURL += "&udm=50";
+        }
+        window.open(searchURL, "_blank");
     }
     else {
-        window.open(openURL, "_blank");
+        // if there is no protocol
+        if (!openURL.includes("//")) {
+            if (hasValidExtension(openURL)) {
+                openURL = new URL(openURL, window.location.href).href;
+                window.open(openURL, "_blank");
+            } 
+        }
+        else {
+            window.open(openURL, "_blank");
+        }
     }
 
+    // moving element
     const index = left.indexOf(selectedResult);
     if (index >= 0) {
         right.push(left.splice(index, 1)[0]);
