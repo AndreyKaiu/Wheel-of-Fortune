@@ -60,7 +60,7 @@ li {
 
 .wheel_center {
     width: 40%;
-    margin: 10px;    
+    /* margin: 10px; */
 }
 
 
@@ -369,22 +369,22 @@ document.addEventListener('keydown', function(e) {
 
 if (!params.id && !params.data) {
     // export mode
-    if(id_init_for_export && id_init_for_export.textContent.trim() != '') {
+    if(id_init_for_export && id_init_for_export.textContent.trim() != '') {        
+        edit_mode = false;  
+        localStorage.setItem("wheel_edit_mode", edit_mode);   
+        update_edit_mode();      
+        
         ID = id_init_for_export.textContent.trim(); 
         //history.replaceState(null, "", "?id="+ID);
         history.pushState(null, "", "?id="+ID);
-        console.log('export mode ID=' + String(ID));
-        console.log(0);
+        
         //localStorage.setItem("wheel_id", ID);
-        if( !(left_init_for_export && right_init_for_export) ) {
-            console.log(11);
+        if( !(left_init_for_export && right_init_for_export) ) {            
             wheel_name = load("name") || '';
             left = load("left") || [];
-            right = load("right") || [];
-            console.log(1);
+            right = load("right") || [];            
         }
-        else {
-            console.log(2);
+        else {            
             const storedName = load("name");
             const storedLeft = load("left");
             const storedRight = load("right");
@@ -395,12 +395,10 @@ if (!params.id && !params.data) {
             }
 
             if (confirmSt) {
-                wheel_name = load("name") || '';
-                console.log('wheel_name='+String(wheel_name));
+                wheel_name = load("name") || '';                
                 left = load("left") || [];
                 right = load("right") || [];
-            } else {    
-                console.log(3);      
+            } else {                    
                 wheel_name = wheelNameEl.textContent; 
                 setTimeout( () => {
                     const inputLeft = document.getElementById("urlInputLeft");
@@ -415,10 +413,8 @@ if (!params.id && !params.data) {
         }
     }
     else {
-        // normal mode
-        console.log(4);                
-        ID = localStorage.getItem("wheel_id") || crypto.randomUUID();     
-        console.log('normal mode ID=' + String(ID));
+        // normal mode        
+        ID = localStorage.getItem("wheel_id") || crypto.randomUUID();             
         localStorage.setItem("wheel_id", ID);
         history.pushState(null, "", "?id="+ID);
         wheel_name = load("name") || '';
@@ -428,13 +424,15 @@ if (!params.id && !params.data) {
 
 }
 else {
-    console.log('params.id='+String(params.id));
+    edit_mode = false;  
+    localStorage.setItem("wheel_edit_mode", edit_mode);   
+    update_edit_mode();
+        
     ID = params.id || crypto.randomUUID();
     if( !params.id && id_init_for_export && id_init_for_export.textContent.trim() != '') {
         ID = id_init_for_export.textContent.trim();    
     }    
-    localStorage.setItem("wheel_id", ID);
-    console.log(5); 
+    localStorage.setItem("wheel_id", ID);    
     history.pushState(null, "", "?id="+ID);
 
 
@@ -638,7 +636,13 @@ function updateLists() {
     if(wheel_name) wheel_name = wheel_name.trim();
     wheelNameEl.textContent = wheel_name ? wheel_name : wheelname_init.textContent;
     document.title = wheelNameEl.textContent;
+
+    if(left.length == 0 && right.length == 0) {
+        edit_mode = true;  
+        localStorage.setItem("wheel_edit_mode", edit_mode);         
+    }
     update_edit_mode();
+
     save();
 }
 
