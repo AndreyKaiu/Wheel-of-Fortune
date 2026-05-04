@@ -22,7 +22,7 @@ Once you move all the items from the left list to the right, a button will be av
 
 <img width="549" height="226" alt="image" src="https://github.com/user-attachments/assets/9b77e9ee-2d20-4a56-909c-e13d64b3b194" />
 
-But the main function of this roulette is that you can place links, so that after clicking on the button, the link will open (And here before the | there is a name or an explanatory word). The separator of each list element is the character ;
+But the main feature of this roulette is that you can place links, so that when you click the button, the link will open (and here the | is preceded by a title or explanatory word). If you write a question before the | and then insert "|?", then a Google search for that question will be performed. If you write "|??", then an answer will be given using AI. The separator for each list item is the character ;
 
 <img width="1285" height="770" alt="3" src="https://github.com/user-attachments/assets/417847d2-5a70-4916-b2f4-5dce7ce1c0db" />
 
