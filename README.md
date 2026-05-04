@@ -25,7 +25,7 @@ But the main function of this roulette is that you can place links, so that afte
 
 The idea behind this program (this HTML file) is that you post some study links and randomly select them. Perhaps one of the list items will be a simple text: "take a break or win a prize."
 
-All this allows us to organize group work with a little more interest, and each student can personally organize a knowledge testing exercise for themselves.
+*All this allows us to organize group work with a little more interest, and each student can personally organize a knowledge testing exercise for themselves.*
 
 <img width="534" height="143" alt="4" src="https://github.com/user-attachments/assets/cb09bd8a-1a94-4d05-891c-7085ba8ad3fe" />
 
@@ -39,7 +39,9 @@ If you click the "Get the full list" button, you can get the entire list in the 
 
 If you translate this HTML file into the desired language using the browser's context menu and then click the "Export to HTML" button, the translation language will be preserved, just like the entire contents of the lists. You can send this file to your students or share it with others.
 
+You can rename this HTML file to 'index.html' and specify links to local files (these don't have to be HTML files, but could be PDFs, MP3s, MP4s, images, etc.) without specifying a long path. If you already have all the files in the directory, you can select them and drag them into the input field, which will automatically generate a list. (Alternatively, for Windows, hold down the 'Shift' key in the context menu and right-click to access the 'Copy as path' menu item. You can then paste from the clipboard into the input field.)
 
+Then you can send this entire folder of files to your students. You'll end up with something similar to a music player, but some links might lead to files where they need to learn something, while others might be rewarding or just a break from studying.
 
 
 
