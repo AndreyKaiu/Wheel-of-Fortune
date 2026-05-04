@@ -5,7 +5,7 @@ User view:
 
 <img width="1397" height="582" alt="2" src="https://github.com/user-attachments/assets/059188f7-bff4-46b8-8619-098d2376351b" />
 
-Editing view (switched by: "[Shift]+[1]" or when you type "zzz" in the title name)
+**Editing view (switched by: "[Shift]+[1]" or when you type "zzz" in the title name)**
 
 <img width="1393" height="572" alt="1" src="https://github.com/user-attachments/assets/627fd855-8067-43c5-a314-187676843537" />
 
@@ -25,7 +25,7 @@ But the main function of this roulette is that you can place links, so that afte
 
 The idea behind this program (this HTML file) is that you post some study links and randomly select them. Perhaps one of the list items will be a simple text: "take a break or win a prize."
 
-*All this allows us to organize group work with a little more interest, and each student can personally organize a knowledge testing exercise for themselves.*
+**All this allows us to organize group work with a little more interest, and each student can personally organize a knowledge testing exercise for themselves.**
 
 <img width="534" height="143" alt="4" src="https://github.com/user-attachments/assets/cb09bd8a-1a94-4d05-891c-7085ba8ad3fe" />
 
