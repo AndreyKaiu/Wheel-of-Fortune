@@ -127,6 +127,11 @@ button:active {
     position: relative;
 }
 
+.titlelist {
+    user-select: none;
+    cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -138,7 +143,7 @@ button:active {
 <div id="confirm_init_load2" style="display: none;">(Cancel = new)</div>
 <!-- LEFT LIST -->
 <div class="list">
-    <h3>⏳ For study</h3>
+    <h3 class="titlelist">⏳ For study</h3>
     <div class="editmode em_hide" style="width: 100%; margin: 0 auto 10px;">
         <input id="urlInputLeft" placeholder='Enter or paste the URL (or: "Name|URL" or: "1-2" for #1;#2); Another URL...' style="width: 99%; margin-bottom: 5px;" onkeydown="if(event.key === 'Enter') addUrl(left);">        
         <button onclick="addUrl(left)">+ Add URL</button>
@@ -171,7 +176,7 @@ button:active {
 
 <!-- RIGHT LIST -->
 <div class="list">
-    <h3>👍 Studied</h3>
+    <h3 class="titlelist">👍 Studied</h3>
     <div class="editmode em_hide" style="width: 100%; margin: 0 auto 10px;">
             <input id="urlInputRight" placeholder='Enter or paste the URL (or: "Name|URL" or: "1-2" for #1;#2); Another URL...' style="width: 99%; margin-bottom: 5px;" onkeydown="if(event.key === 'Enter') addUrl(right);">   
             <button onclick="addUrl(right)">+ Add URL</button>
@@ -244,6 +249,38 @@ else if(edit_mode=='true') edit_mode = true;
 localStorage.setItem("wheel_edit_mode", edit_mode); 
 update_edit_mode();
 
+
+let pressTimer = null;
+const LONG_PRESS_TIME = 700; // ms
+function startPress(e) {
+    // protection against repeated events
+    if (pressTimer !== null) return;
+
+    pressTimer = setTimeout(() => {
+        edit_mode = !edit_mode;  
+        localStorage.setItem("wheel_edit_mode", edit_mode);         
+        update_edit_mode();       
+    }, LONG_PRESS_TIME);
+}
+function cancelPress() {
+    if (pressTimer !== null) {
+        clearTimeout(pressTimer);
+        pressTimer = null;
+    }
+}
+
+document.querySelectorAll('.titlelist').forEach(el => {
+    el.addEventListener("mousedown", startPress);
+    el.addEventListener("mouseup", cancelPress);
+    el.addEventListener("mouseleave", cancelPress);
+    el.addEventListener("touchstart", startPress);
+    el.addEventListener("touchend", cancelPress);
+    el.addEventListener("touchcancel", cancelPress);
+});
+
+
+
+
 // open editing
 wheelNameEl.addEventListener("click", (e) => {
     // so that it doesn't work when you click inside the input/button
@@ -258,14 +295,7 @@ wheelNameEl.addEventListener("click", (e) => {
 
 function applyWheelName() {
     const newName = input.value.trim();
-    if (!newName) return;
-    if(newName=='zzz' || newName=='ZZZ' || newName=='zzzz' || newName=='ZZZZ') {
-        input.value = '';
-        edit_mode = !edit_mode;  
-        localStorage.setItem("wheel_edit_mode", edit_mode);         
-        update_edit_mode();        
-        return;
-    }    
+    if (!newName) return;    
     wheelNameEl.textContent = newName ? newName : wheelNameEl.textContent; 
     document.title = wheelNameEl.textContent; 
     wheel_name = newName; 
