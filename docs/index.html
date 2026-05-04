@@ -50,7 +50,9 @@ ul {
 
 li {
     cursor: pointer;
-    padding: 3px;
+    padding: 5px;
+    margin-left: 20px;
+    word-wrap: break-word;
 }
 
 .selected {
@@ -89,6 +91,7 @@ button:active {
     padding: 10px;
     width: 450px;
     min-height: 2.5rem;
+    word-wrap: break-word;
 }
 
 .alignCenter {
@@ -207,7 +210,7 @@ var LZString=function(){function o(o,r){if(!t[o]){t[o]={};for(var n=0;n<o.length
 
 <script>
 let selectedItem = null;
-const sliceURL = 80; 
+const sliceURL = 320; 
 let selectedResult = null;
 let canvasWidth = 600;
 let canvasHeight = 600;
@@ -576,7 +579,6 @@ function formatUrlDisplay(input, maxLEN = 40) {
     // pruning
     let mxLen = maxLEN - name.length - (name ? 1 : 0); 
     if (mxLen < 10) mxLen = 10;
-
     if (urlPart.length > mxLen) {
         const start = urlPart.slice(0, 8);
         const end = urlPart.slice(-(mxLen - 11)); // 8 + "..." = 11
