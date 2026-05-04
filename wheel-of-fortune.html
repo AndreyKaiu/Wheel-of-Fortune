@@ -239,7 +239,8 @@ if( confirm_init_load1 && confirm_init_load2 ) {
 
 let edit_mode = false; // Will there be an edit mode the very first time?
 edit_mode = localStorage.getItem("wheel_edit_mode") || edit_mode;
-edit_mode = edit_mode=='false' ? false : true;
+if(edit_mode=='false') edit_mode = false;
+else if(edit_mode=='true') edit_mode = true; 
 localStorage.setItem("wheel_edit_mode", edit_mode); 
 update_edit_mode();
 
