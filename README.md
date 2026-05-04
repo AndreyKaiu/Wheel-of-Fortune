@@ -41,7 +41,9 @@ If you translate this HTML file into the desired language using the browser's co
 
 You can rename this HTML file to 'index.html' and specify links to local files (these don't have to be HTML files, but could be PDFs, MP3s, MP4s, images, etc.) without specifying a long path. If you already have all the files in the directory, you can select them and drag them into the input field, which will automatically generate a list. (Alternatively, for Windows, hold down the 'Shift' key in the context menu and right-click to access the 'Copy as path' menu item. You can then paste from the clipboard into the input field.)
 
-Then you can send this entire folder of files to your students. You'll end up with something similar to a music player, but some links might lead to files where they need to learn something, while others might be rewarding or just a break from studying.
+Then you can send this entire folder of files to your students. You'll end up with something similar to a video player, but some links might lead to files where they need to learn something, while others might be rewarding or just a break from studying.
+
+Since the HTML file itself contains two sounds, and you send all the files in a folder, you can do this without internet access, which is important to ensure the data always remains exactly as the teacher provided it. If the data needs to be constantly updated and supplemented, it's best to provide a link to the file somewhere on the teacher's website.
 
 
 
